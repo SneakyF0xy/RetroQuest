@@ -1,0 +1,139 @@
+@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
+
+@keyframes fade_expand {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  from {transform: scaleY(0);}
+  to {transform: scaleY(1);}
+}
+
+.pixel-form-box {
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgba(44, 44, 46, 0.97),
+          $border-inset-sides: 'all'
+  );
+  transform-origin: bottom;
+  animation-name: fade_expand;
+  animation-duration: 1.5s;
+
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5em;
+  width: 40em;
+}
+
+
+.pixel-form-box:hover {
+  background-color: rgba(44, 44, 46, 0.97)
+}
+
+.pixel-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.4em;
+}
+
+.pixel-category {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.4em;
+  color: #93B9B9;
+}
+
+.pixel-text {
+  font-family: 'Press Start 2P', cursive;
+  --font-size: 1.2em;
+  font-size: var(--font-size);
+  text-align: justify;
+  line-height : calc(var(--font-size) * 1.5);
+  white-space: pre-wrap;
+}
+
+.pixel-input {
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgb(192, 163, 139),
+          $border-inset-sides: 'all'
+  );
+  font-family: 'Press Start 2P', cursive;
+  color: #1b4b4b;
+  font-size: 1em;
+  z-index: 1;
+  height: 2em;
+  margin-bottom: 1em;
+}
+
+.pixel-input:hover {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline:none;
+}
+
+.pixel-input:not(:hover) {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline:none;
+}
+
+.pixel-check-button {
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgb(192, 163, 139),
+          $border-inset-sides: 'all'
+  );
+  font-family: 'Press Start 2P', cursive;
+  color: #1b4b4b;
+  font-size: 1em;
+  z-index: 1;
+  height: 3em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+.pixel-check-button:hover {
+  background-color: rgb(183, 150, 122);
+}
+
+.pixel-container {
+  position: relative;
+  text-indent: 1.5em;
+  width: 35em;
+  /*height: 38em;*/
+  margin: 0 auto;
+}
+
+.pixel-text-wrong {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  color: #f10009;
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+
+.pixel-button-next-level {
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgb(0, 150, 36),
+          $border-inset-sides: 'all'
+  );
+  font-family: 'Press Start 2P', cursive;
+  color: #ffffff;
+  font-size: 1.5em;
+  z-index: 1;
+  height: 3em;
+  margin-bottom: 1em;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.exclamation-mark {
+  animation: blink 1s linear infinite;
+}

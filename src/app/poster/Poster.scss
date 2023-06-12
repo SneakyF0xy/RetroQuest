@@ -1,0 +1,59 @@
+@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
+@import "../Task.scss";
+
+.poster-background {
+  background: url('background.gif') center no-repeat;
+  background-size: cover;
+}
+
+.poster {
+  text-align: center;
+}
+
+.poster-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.poster-button {
+  @extend .disappear-button;
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgba(32, 253, 253, 0.51),
+          $border-inset-sides: 'all'
+  );
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.33em;
+  height: 3em;
+  position: absolute;
+}
+
+@media (min-aspect-ratio: 1200 / 675) {
+  .poster-button {
+    bottom: 50%;
+    left: 47.3%;
+    margin-bottom: -14.23vw;
+  }
+}
+
+@media (max-aspect-ratio: 1200 / 675) {
+  .poster-button {
+    bottom: 24.8%;
+    left: 50%;
+    margin-left: -4.1vh;
+  }
+}
+
+.poster-hyperlink {
+  display: block;
+  margin-bottom: 1em;
+  z-index: 1;
+  position: relative;
+  font-size: 2em;
+}

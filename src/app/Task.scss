@@ -1,0 +1,35 @@
+.task-background {
+  background: url('background.gif') center no-repeat;
+  background-size: cover;
+}
+
+.task {
+  text-align: center;
+}
+
+.task-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.disappear-button {
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+}
+
+@keyframes disappear {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.disappear-button.disappear {
+  animation-name: disappear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
