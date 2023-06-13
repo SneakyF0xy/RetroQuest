@@ -65,7 +65,7 @@ app.get('/api/final', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
 });
 
-app.use('/static', express.static(path.join(__dirname, '../client/build/static')));
+app.use('/static', express.static(path.join(__dirname, '../build/static')));
 app.get('*', function(req, res) {
     if (process.env.NODE_ENV === 'production') {
         res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
