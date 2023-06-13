@@ -62,18 +62,18 @@ app.get('/api/final', function(req, res) {
             message: 'Ты не собрал все флаги, грязный хакер!'
         });
     }
-    res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
+    res.sendFile('index.html', {root: path.join(__dirname, '../../build/')});
 });
 
-app.use('/static', express.static(path.join(__dirname, '../build/static')));
+app.use(express.static(path.join(__dirname, '../build')));
 app.get('*', function(req, res) {
     if (process.env.NODE_ENV === 'production') {
-        res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
+        res.sendFile('index.html', {root: path.join(__dirname, '../../build/')});
     } else {
         //res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
     }
 });
 
-app.listen(80);
+//app.listen(80);
 
 module.exports = app;
