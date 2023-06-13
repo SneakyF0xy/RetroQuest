@@ -12,16 +12,9 @@ const answers = {
     'poster': 'R()b()Ts /|re /|L1v3'
 }
 
-const getRedirect = (task) => {
-    const answers_keys = Object.keys(answers)
-    const next_task_index = answers_keys.indexOf(task) + 1;
-    return next_task_index < answers_keys.length ? answers_keys[next_task_index] : 'final'
-}
-
 app.post('/api/check-answer', (req, res) => {
     const task = req.body.task;
     const answer = req.body.answer;
-    // Проверка ответа
     const isCorrect = answers[task] === answer;
     if (isCorrect) {
       let cookie_options = {
@@ -42,6 +35,12 @@ const checkTaskPass = (task, req) => {
         pass = basedAnswer === req.cookies[task]
     }
     return pass
+}
+
+const getRedirect = (task) => {
+    const answers_keys = Object.keys(answers)
+    const next_task_index = answers_keys.indexOf(task) + 1;
+    return next_task_index < answers_keys.length ? answers_keys[next_task_index] : 'final'
 }
 
 app.post('/api/check-task-pass', (req, res) => {
@@ -66,7 +65,6 @@ app.get('/api/final', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
 });
 
-//app.use(express.static(path.join(__dirname, '../src')));
 app.use('/static', express.static(path.join(__dirname, '../client/build/static')));
 app.get('*', function(req, res) {
     if (process.env.NODE_ENV === 'production') {

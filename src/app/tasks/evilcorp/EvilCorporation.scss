@@ -1,0 +1,52 @@
+@import "node_modules/pixel-borders/src/styles/pixel-borders";
+@import "src/app/Task";
+
+.evil-corp-background {
+  background: url('background.gif') center no-repeat;
+  background-size: cover;
+}
+
+.evil-corp {
+  text-align: center;
+}
+
+.evil-corp {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.evil-corp-button {
+  @extend .disappear-button;
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgba(0, 0, 0, 0.17),
+          $border-inset-sides: 'all'
+  );
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.25em;
+  height: 3em;
+  transform: rotateY(0deg) rotate(45deg);
+  position: absolute;
+}
+
+@media (min-aspect-ratio: 1600 / 900) {
+  .evil-corp-button {
+    bottom: 50%;
+    left: 48.5%;
+    margin-bottom: 18.52137vw;
+  }
+}
+
+@media (max-aspect-ratio: 1600 / 900) {
+  .evil-corp-button {
+    bottom: 83.3%;
+    left: 50%;
+    margin-left: -3.1vh;
+  }
+}

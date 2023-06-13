@@ -1,10 +1,10 @@
 import './RetroQuest.scss';
 import {BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
 import React from "react";
-import Asteroids from "./asteroids/Asteroids";
-import Cryptoland from "./cryptoland/Cryptoland";
-import EvilCorporation from "./evilcorp/EvilCorporation";
-import Poster from "./poster/Poster";
+import Asteroids from "./tasks/asteroids/Asteroids";
+import Cryptoland from "./tasks/cryptoland/Cryptoland";
+import EvilCorporation from "./tasks/evilcorp/EvilCorporation";
+import Poster from "./tasks/poster/Poster";
 import Final from "./final/Final";
 
 function addSpace(str) {
@@ -42,7 +42,7 @@ function Main() {
                 <VaporwaveText text="QUEST" className = "vapor-subheader"/>
                 <RetroButton/>
             </header>
-            <div className="ncfu-pixel-img"/>
+            <a className="ncfu-pixel-img" href="https://www.ncfu.ru/" target="_blank"/>
         </div>
         </div>
     );

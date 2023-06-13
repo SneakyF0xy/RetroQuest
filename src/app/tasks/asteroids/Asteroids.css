@@ -1,0 +1,30 @@
+.asteroids-background {
+  background: url('background.gif') center no-repeat;
+  background-size: cover;
+}
+
+.invisible-button {
+    position: absolute;
+    width: 45px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-aspect-ratio: 1918 / 1078) {
+    .invisible-button {
+        bottom: 50%;
+        left: 56.076%;
+        margin-bottom: -1.47863vw;
+    }
+}
+
+@media (max-aspect-ratio: 1918 / 1078) {
+    .invisible-button {
+        bottom: 46.5%;
+        left: 50%;
+        margin-left: 9.75vh;
+    }
+}
+

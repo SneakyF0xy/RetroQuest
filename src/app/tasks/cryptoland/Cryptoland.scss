@@ -1,0 +1,23 @@
+@import "node_modules/pixel-borders/src/styles/pixel-borders";
+@import "src/app/Task";
+
+.crypto-background {
+  background: url('background.gif') center no-repeat;
+  background-size:cover;
+}
+
+.crypto-button {
+  @extend .disappear-button;
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgba(16, 26, 81, 0.17),
+          $border-inset-sides: 'all'
+  );
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.4em;
+  height: 3em;
+  position: absolute;
+  margin-top: 49vh;
+}
+

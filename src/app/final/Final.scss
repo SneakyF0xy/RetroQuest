@@ -16,3 +16,36 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
+@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
+
+@keyframes fade_expand {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  from {transform: scaleY(0);}
+  to {transform: scaleY(1);}
+}
+
+.final-form-box {
+  @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: rgba(116, 106, 169, 0.94),
+          $border-inset-sides: 'all'
+  );
+  transform-origin: bottom;
+  animation-name: fade_expand;
+  animation-duration: 1.5s;
+
+  font-family: 'Press Start 2P', cursive;
+  --font-size: 1.2em;
+  font-size: var(--font-size);
+  line-height : calc(var(--font-size) * 1.1);
+  max-width: 70vw;
+}
+
+a {
+  z-index: 1;
+  position: relative;
+}
