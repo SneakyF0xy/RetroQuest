@@ -53,13 +53,13 @@ app.post('/api/check-task-pass', (req, res) => {
 app.get('/final', function(req, res) {
     const answers_keys = Object.keys(answers)
     const tasksPassed = answers_keys.every(key => checkTaskPass(key, req));
-
-    if (!tasksPassed) {
+    if (tasksPassed) {
+        res.sendFile('index.html', {root: path.join(__dirname, '../build')});
+    } else {
         res.status(400).send({
             message: 'Ты не собрал все флаги, грязный хакер!'
         });
     }
-    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 });
 
 app.use(express.static(path.join(__dirname, '../build')));
