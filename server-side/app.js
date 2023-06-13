@@ -50,28 +50,21 @@ app.post('/api/check-task-pass', (req, res) => {
     res.json({ pass, redirect });
 });
 
-app.get('/api/final', function(req, res) {
+app.get('/final', function(req, res) {
     const answers_keys = Object.keys(answers)
-    let tasksPassed = false
-    answers_keys.forEach(key => {
-        tasksPassed = checkTaskPass(key, req);
-    })
+    const tasksPassed = answers_keys.every(key => checkTaskPass(key, req));
 
     if (!tasksPassed) {
         res.status(400).send({
             message: 'Ты не собрал все флаги, грязный хакер!'
         });
     }
-    res.sendFile('index.html', {root: path.join(__dirname, '../../build/')});
+    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 });
 
-app.use(express.static(path.join(__dirname, '../../build')));
+app.use(express.static(path.join(__dirname, '../build')));
 app.get('*', function(req, res) {
-    if (process.env.NODE_ENV === 'production') {
-        res.sendFile('index.html', {root: path.join(__dirname, '../../build/')});
-    } else {
-        //res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
-    }
+    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 });
 
 //app.listen(80);
