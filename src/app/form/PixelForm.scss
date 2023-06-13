@@ -46,9 +46,12 @@
   text-align: justify;
   line-height : calc(var(--font-size) * 1.5);
   white-space: pre-wrap;
+  z-index: 1;
+  position: relative;
 }
 
 .pixel-input {
+  @extend .no-text-select;
   @include pixel-box(
           $corner-size: 1,
           $border-size: 4px,
@@ -78,6 +81,7 @@
 }
 
 .pixel-check-button {
+  @extend .no-text-select;
   @include pixel-box(
           $corner-size: 1,
           $border-size: 4px,
@@ -106,6 +110,7 @@
 }
 
 .pixel-text-wrong {
+  @extend .no-text-select;
   font-family: 'Press Start 2P', cursive;
   font-size: 2em;
   color: #f10009;
@@ -114,6 +119,7 @@
 }
 
 .pixel-button-next-level {
+  @extend .no-text-select;
   @include pixel-box(
           $corner-size: 1,
           $border-size: 4px,
@@ -136,4 +142,14 @@
 
 .exclamation-mark {
   animation: blink 1s linear infinite;
+}
+
+.no-text-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
