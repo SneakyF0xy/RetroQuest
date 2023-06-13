@@ -22,7 +22,7 @@ app.post('/api/check-answer', (req, res) => {
         httpOnly: true
       }
 
-      res.cookie(task, btoa(unescape(encodeURIComponent(answer))), cookie_options)
+      res.cookie(task, Buffer.from(answer).toString('base64'), cookie_options)
     }
     res.json({ isCorrect });
 });
@@ -31,7 +31,7 @@ const checkTaskPass = (task, req) => {
     let pass = false
     if (req.cookies[task]) {
         const answer = answers[task];
-        const basedAnswer = btoa(unescape(encodeURIComponent(answer)))
+        const basedAnswer = Buffer.from(answer).toString('base64')
         pass = basedAnswer === req.cookies[task]
     }
     return pass
