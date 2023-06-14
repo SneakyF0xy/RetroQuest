@@ -1,5 +1,6 @@
 import Task, {DisappearButton} from "../../Task";
 import './Cryptoland.scss';
+import React, { Component }  from 'react';
 
 function Cryptoland() {
     return (
