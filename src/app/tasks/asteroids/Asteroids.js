@@ -1,5 +1,6 @@
 import Task from "../../Task";
 import './Asteroids.css';
+import React, { Component }  from 'react';
 
 function GameMachineButton(props) {
     return (
