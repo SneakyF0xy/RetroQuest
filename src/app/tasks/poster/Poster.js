@@ -1,5 +1,6 @@
 import Task, {DisappearButton} from "../../Task";
 import './Poster.scss';
+import React, { Component }  from 'react';
 
 function Poster() {
     const hyperLink = (
