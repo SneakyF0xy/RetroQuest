@@ -1,5 +1,7 @@
 import './EvilCorporation.scss';
 import Task, { DisappearButton } from "../../Task";
+import React, { Component }  from 'react';
+
 
 function EvilCorporation() {
     return (
